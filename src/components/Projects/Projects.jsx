@@ -1,11 +1,17 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { PortfolioContext } from '../context/PortfolioContext';
+import ProjectDetails from '../ProjectDetails/ProjectDetails';
 
 const Projects = () => {
   const { projects } = useContext(PortfolioContext);
+  const [selectedProject, setSelectedProject] = useState(null);
 
   if (!Array.isArray(projects)) {
     return <div>Loading projects...</div>;
+  }
+
+  if (selectedProject) {
+    return <ProjectDetails project={selectedProject} onBack={() => setSelectedProject(null)} />;
   }
 
   return (
@@ -16,7 +22,9 @@ const Projects = () => {
           <div key={project.id} className="bg-gray-800 p-4 rounded shadow-lg">
             <h3 className="text-xl mb-2">{project.name}</h3>
             <p className="mb-2">{project.description}</p>
-            <a href={project.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">View on GitHub</a>
+            <button onClick={() => setSelectedProject(project)} className="text-blue-400 hover:underline">
+              View Details
+            </button>
           </div>
         ))}
       </div>

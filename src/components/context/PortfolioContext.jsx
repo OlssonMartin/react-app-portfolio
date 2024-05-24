@@ -15,7 +15,6 @@ export const PortfolioProvider = ({ children }) => {
   });
 
   const [projects, setProjects] = useState([]);
-
   const [about, setAbout] = useState({
     text: `I am Martin, a frontend developer with a passion for creating beautiful and functional websites.
            With a strong background in HTML, CSS, and JavaScript, I specialize in building responsive and user-friendly interfaces.
@@ -29,11 +28,12 @@ export const PortfolioProvider = ({ children }) => {
     const fetchGitHubProjects = async () => {
       try {
         const response = await fetch('https://api.github.com/users/OlssonMartin/repos');
-        if (!response.ok) {
-          throw new Error(`HTTP error! status: ${response.status}`);
-        }
         const data = await response.json();
-        setProjects(data);
+        const projectsWithDemo = data.map(project => ({
+          ...project,
+          demo_url: `https://example.com/demo/${project.name}` // Byt ut detta med rätt demo-URL
+        }));
+        setProjects(projectsWithDemo);
       } catch (error) {
         console.error('Error fetching GitHub projects:', error);
       }
