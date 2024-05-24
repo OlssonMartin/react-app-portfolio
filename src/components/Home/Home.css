@@ -1,0 +1,38 @@
+.home {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+    text-align: center;
+    background-color: #1a1a50;
+    min-height: 50vh;
+    color: #fff;
+  }
+  
+  .home img.profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-bottom: 20px;
+  }
+  
+  .home h2 {
+    margin: 0;
+  }
+  
+  .home p {
+    margin: 10px 0 20px;
+  }
+  
+  .home .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    font-size: 1.5rem;
+    text-decoration: none;
+  }
+  
+  .home .social-links a:hover {
+    color: #ccc;
+  }
+  
