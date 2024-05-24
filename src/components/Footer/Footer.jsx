@@ -1,9 +1,8 @@
 import React from 'react';
-import './Footer.css';
 
 const Footer = () => {
   return (
-    <footer className="footer">
+    <footer className="bg-gray-800 text-white p-4 text-center">
       <p>&copy; 2023 Martin Olsson</p>
     </footer>
   );
