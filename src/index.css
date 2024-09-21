@@ -1,3 +1,36 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+  font-family: 'Roboto', sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease;  /* Mjuk övergång mellan dark och light mode */
+}
+
+.dark body {
+  background-color: #1a202c; /* Bakgrundsfärg för dark mode */
+  color: #e2e8f0; /* Textfärg för dark mode */
+}
+
+.hover-scale {
+  transition: transform 0.3s ease;
+}
+
+.hover-scale:hover {
+  transform: scale(1.05);
+}
+
+section {
+  transition: all 0.3s ease;
+}
+
+.overlay-hover {
+    transition: opacity 0.3s ease;
+    opacity: 0;
+  }
+  
+  .overlay-hover:hover {
+    opacity: 1;
+  }

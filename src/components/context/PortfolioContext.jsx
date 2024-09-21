@@ -1,49 +1,35 @@
-import React, { createContext, useState, useEffect } from 'react';
+import React, { createContext, useState } from 'react';
 
+// Skapa Context
 export const PortfolioContext = createContext();
 
+// Context Provider
 export const PortfolioProvider = ({ children }) => {
-  const [user, setUser] = useState({
+  const [user] = useState({
     name: 'Martin Olsson',
-    title: 'Frontend Developer',
-    description: 'My name is Martin, take a look around',
-    social: {
-      linkedin: '#',
-      github: '#',
-      email: 'mailto:example@example.com'
-    }
+    title: 'Frontend Utvecklare',
+    bio: 'I build things for the web',
   });
 
-  const [projects, setProjects] = useState([]);
-  const [about, setAbout] = useState({
-    text: `I am Martin, a frontend developer with a passion for creating beautiful and functional websites.
-           With a strong background in HTML, CSS, and JavaScript, I specialize in building responsive and user-friendly interfaces.
-           My goal is to deliver high-quality code and bring designs to life through innovative solutions.`,
-    skills: [
-      'HTML', 'CSS', 'JavaScript', 'React', 'Git', 'Responsive Design', 'UI/UX Design'
-    ]
-  });
-
-  useEffect(() => {
-    const fetchGitHubProjects = async () => {
-      try {
-        const response = await fetch('https://api.github.com/users/OlssonMartin/repos');
-        const data = await response.json();
-        const projectsWithDemo = data.map(project => ({
-          ...project,
-          demo_url: `https://example.com/demo/${project.name}` // Byt ut detta med rätt demo-URL
-        }));
-        setProjects(projectsWithDemo);
-      } catch (error) {
-        console.error('Error fetching GitHub projects:', error);
-      }
-    };
-
-    fetchGitHubProjects();
-  }, []);
+  const [projects] = useState([
+    {
+      id: 1,
+      name: 'Project One',
+      description: 'This is a food app',
+      html_url: 'https://github.com/OlssonMartin/mat-app-react',
+      demo_url: 'https://ornate-palmier-28df74.netlify.app',
+    },
+    {
+      id: 2,
+      name: 'Project Two',
+      description: 'This is the description for project two',
+      html_url: 'https://github.com/yourusername/project-two',
+      demo_url: 'https://project-two-demo.netlify.app',
+    },
+  ]);
 
   return (
-    <PortfolioContext.Provider value={{ user, projects, about }}>
+    <PortfolioContext.Provider value={{ user, projects }}>
       {children}
     </PortfolioContext.Provider>
   );
