@@ -4,7 +4,7 @@ const Header = ({ darkMode, setDarkMode }) => {
   return (
     <header className="bg-white dark:bg-darkBlue text-gray-800 dark:text-white py-4">
       <div className="max-w-6xl mx-auto flex justify-between items-center">
-        <h1 className="text-2xl font-bold">Your Name</h1>
+        <h1 className="text-2xl font-bold">Martin Olsson</h1>
         <nav>
           <ul className="flex space-x-8">
             <li><a href="#home" className="hover:underline">Home</a></li>
@@ -14,12 +14,12 @@ const Header = ({ darkMode, setDarkMode }) => {
             {/* Lägg till CV-länk */}
             <li>
               <a
-                href="https://drive.google.com/file/d/15cqMYFOznF4GBZAewG4bDEQDRjejs3nH/view?usp=sharing"  // URL till din PDF-fil
+                href="/Blue Simple Professional CV Resume.pdf"  // URL till din PDF-fil
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hover:underline text-blue-500"
               >
-                Download CV
+                Open CV
               </a>
             </li>
           </ul>
